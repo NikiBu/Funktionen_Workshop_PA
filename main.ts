@@ -1,3 +1,11 @@
+let x = 0
+input.onButtonPressed(Button.A, function on_button_pressed_a() {
+    basic.showNumber(x)
+    rechts_abbiegen(x)
+    links_abbiegen(90)
+    backward(10, 30)
+    forward(20, 20)
+})
 //  m1a output auf P15
 //  m1b auf p13
 //  m2a auf p14
@@ -6,10 +14,6 @@
 //  trigger = P8
 //  echo = P9
 //  3.3v pin
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
-    basic.showNumber(x)
-    rechts_abbiegen(x)
-})
 function backward(time: number, speed: number) {
     pins.analogWritePin(AnalogPin.P13, 1023 * speed)
     pins.analogWritePin(AnalogPin.P12, 1023 * speed)
@@ -33,27 +37,19 @@ input.onButtonPressed(Button.B, function on_button_pressed_b() {
 //  forward & backward time in sekunden angeben wie lange fahren,
 //  speed wie schnell 1 = vollgas 0.5 = halbgas
 //  abbiegen: winkel in grad angeben 0 - 360
-function forward(time: number, speed: number) {
-    pins.analogWritePin(AnalogPin.P15, 1023 * speed)
-    pins.analogWritePin(AnalogPin.P14, 1023 * speed)
-    basic.pause(time * 1000)
+function forward(time2: number, speed2: number) {
+    pins.analogWritePin(AnalogPin.P15, 1023 * speed2)
+    pins.analogWritePin(AnalogPin.P14, 1023 * speed2)
+    basic.pause(time2 * 1000)
     pins.analogWritePin(AnalogPin.P15, 0)
     pins.analogWritePin(AnalogPin.P14, 0)
 }
 
-/**
-  * Lässt den Roboter um den gegebenen Winkel links abbiegen
-  */
-    //% block
-function links_abbiegen(winkel: number) {
+function links_abbiegen(winkel2: number) {
     pins.analogWritePin(AnalogPin.P13, 1023)
     pins.analogWritePin(AnalogPin.P14, 1023)
-    basic.pause(winkel)
+    basic.pause(winkel2)
     pins.analogWritePin(AnalogPin.P13, 0)
     pins.analogWritePin(AnalogPin.P14, 0)
 }
 
-let x = 0
-let speed = 0
-let winkel = 0
-let time = 0
