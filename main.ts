@@ -1,11 +1,3 @@
-let x = 0
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
-    basic.showNumber(x)
-    rechts_abbiegen(x)
-    links_abbiegen(90)
-    backward(10, 30)
-    forward(20, 20)
-})
 //  m1a output auf P15
 //  m1b auf p13
 //  m2a auf p14
@@ -22,21 +14,26 @@ function backward(time: number, speed: number) {
     pins.analogWritePin(AnalogPin.P12, 0)
 }
 
-function rechts_abbiegen(winkel: number) {
-    pins.analogWritePin(AnalogPin.P15, 1023)
-    pins.analogWritePin(AnalogPin.P12, 1023)
-    basic.pause(winkel)
+function rechts_abbiegen(winkel: number, speed1: number) {
+    pins.analogWritePin(AnalogPin.P15, 1023 * speed1)
+    pins.analogWritePin(AnalogPin.P12, 1023 * speed1)
+    if (speed1 == 1) {
+        basic.pause((winkel + 10.6) / 0.256)
+    }
+    
+    if (speed1 == 0.5) {
+        basic.pause((winkel + 10.6) / 0.256 * 2.666)
+    }
+    
     pins.analogWritePin(AnalogPin.P15, 0)
     pins.analogWritePin(AnalogPin.P12, 0)
 }
 
-input.onButtonPressed(Button.B, function on_button_pressed_b() {
-    
-    x = x + 100
-})
 //  forward & backward time in sekunden angeben wie lange fahren,
 //  speed wie schnell 1 = vollgas 0.5 = halbgas
 //  abbiegen: winkel in grad angeben 0 - 360
+// 15 cm bei 0.5s und 1 speed
+// 6.5cm bei 0.5s und 0.5 speed
 function forward(time2: number, speed2: number) {
     pins.analogWritePin(AnalogPin.P15, 1023 * speed2)
     pins.analogWritePin(AnalogPin.P14, 1023 * speed2)
@@ -45,10 +42,17 @@ function forward(time2: number, speed2: number) {
     pins.analogWritePin(AnalogPin.P14, 0)
 }
 
-function links_abbiegen(winkel2: number) {
+function links_abbiegen(winkel2: number, speed3: number) {
     pins.analogWritePin(AnalogPin.P13, 1023)
     pins.analogWritePin(AnalogPin.P14, 1023)
-    basic.pause(winkel2)
+    if (speed3 == 1) {
+        basic.pause((winkel2 + 10.6) / 0.256)
+    }
+    
+    if (speed3 == 0.5) {
+        basic.pause((winkel2 + 10.6) / 0.256 * 2.666)
+    }
+    
     pins.analogWritePin(AnalogPin.P13, 0)
     pins.analogWritePin(AnalogPin.P14, 0)
 }
