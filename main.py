@@ -43,7 +43,7 @@ def forward(time2: number, speed2: number):
     basic.pause(time2 * 1000)
     pins.analog_write_pin(AnalogPin.P15, 0)
     pins.analog_write_pin(AnalogPin.P14, 0)
-# %block
+
 def links_abbiegen(winkel2: number):
     pins.analog_write_pin(AnalogPin.P13, 1023)
     pins.analog_write_pin(AnalogPin.P14, 1023)

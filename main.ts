@@ -45,7 +45,6 @@ function forward(time2: number, speed2: number) {
     pins.analogWritePin(AnalogPin.P14, 0)
 }
 
-//  %block
 function links_abbiegen(winkel2: number) {
     pins.analogWritePin(AnalogPin.P13, 1023)
     pins.analogWritePin(AnalogPin.P14, 1023)
