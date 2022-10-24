@@ -32,8 +32,8 @@ function rechts_abbiegen(winkel: number, speed1: number) {
 //  forward & backward time in sekunden angeben wie lange fahren,
 //  speed wie schnell 1 = vollgas 0.5 = halbgas
 //  abbiegen: winkel in grad angeben 0 - 360
-// 15 cm bei 0.5s und 1 speed
-// 6.5cm bei 0.5s und 0.5 speed
+//  15 cm bei 0.5s und 1 speed
+//  6.5cm bei 0.5s und 0.5 speed
 function forward(time2: number, speed2: number) {
     pins.analogWritePin(AnalogPin.P15, 1023 * speed2)
     pins.analogWritePin(AnalogPin.P14, 1023 * speed2)
@@ -43,8 +43,8 @@ function forward(time2: number, speed2: number) {
 }
 
 function links_abbiegen(winkel2: number, speed3: number) {
-    pins.analogWritePin(AnalogPin.P13, 1023)
-    pins.analogWritePin(AnalogPin.P14, 1023)
+    pins.analogWritePin(AnalogPin.P13, 1023 * speed3)
+    pins.analogWritePin(AnalogPin.P14, 1023 * speed3)
     if (speed3 == 1) {
         basic.pause((winkel2 + 10.6) / 0.256)
     }
