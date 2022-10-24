@@ -57,9 +57,3 @@ function links_abbiegen(winkel2: number, speed3: number) {
     pins.analogWritePin(AnalogPin.P14, 0)
 }
 
-function servo(x: number) {
-    servos.P0.setRange(0, 180)
-    servos.P0.setAngle(0)
-    servos.P0.setAngle(x)
-}
-

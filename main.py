@@ -45,8 +45,3 @@ def links_abbiegen(winkel2: number, speed3: number):
             basic.pause((winkel2 +10.6)/0.256*2.666)
     pins.analog_write_pin(AnalogPin.P13, 0)
     pins.analog_write_pin(AnalogPin.P14, 0)
-
-def servo(x):
-    servos.P0.set_range(0, 180)
-    servos.P0.set_angle(0)
-    servos.P0.set_angle(x)
