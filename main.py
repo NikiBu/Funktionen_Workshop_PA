@@ -45,9 +45,3 @@ def links_abbiegen(winkel2: number, speed3: number):
         basic.pause((winkel2 + 10.6) / 0.256 * 2.666)
     pins.analog_write_pin(AnalogPin.P15, 0)
     pins.analog_write_pin(AnalogPin.P12, 0)
-
-def on_forever():
-    forward(1,0.5)
-    basic.show_icon(IconNames.HEART)
-    pass
-basic.forever(on_forever)

@@ -52,8 +52,3 @@ function links_abbiegen(winkel2: number, speed3: number) {
     pins.analogWritePin(AnalogPin.P12, 0)
 }
 
-basic.forever(function on_forever() {
-    forward(1, 0.5)
-    basic.showIcon(IconNames.Heart)
-    
-})
